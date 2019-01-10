@@ -26,3 +26,12 @@ You can initialize this repository with code from a Subversion, Mercurial, or TF
 restores committed file
 
 $ git checkout HEAD filename
+
+
+…or create a new repository on the command line
+echo "# FlaskSocial_Network2" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/sterlingalston/FlaskSocial_Network2.git
+git push -u origin master
