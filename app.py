@@ -131,6 +131,11 @@ def follow(username):
             flash("You're now following {}!".format(to_user.username), "success")
     return redirect(url_for('stream', username = to_user.username))
 
+@app.route('/post/<int:post_id>')
+def view_post(post_id):
+    posts = models.Post.select().where(models.Post.id == post_id)
+    return render_template('stream.html', stream = posts)
+
 @app.route('/unfollow/<username>')
 @login_required
 def unfollow(username):
