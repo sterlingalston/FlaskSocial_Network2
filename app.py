@@ -164,6 +164,10 @@ def unfollow(username):
             flash("You've unfollowed {}!".format(to_user.username), "success")
     return redirect(url_for('stream', username = to_user.username))
 
+@app.errorhandler(404)
+def not_found(error):
+    return render_template('404.html'), 404 # status code to send back when rendering template  
+
 if __name__ == '__main__':
     models.initialize()
     try:
